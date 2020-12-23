@@ -26,18 +26,18 @@ int main()
                 {
                     continue;
                 }
-                else
-                {
-                    num[k / 100] = 1;
-                    num[k % 100 / 10] = 1;
-                    num[k % 10] = 1;
-                }
                 if((j / i) == 2 && (k / i) == 3)
                 {
-                    printf("%d %d %d\n",&i,&j,&k);
+                    printf("%d %d %d\n",i,j,k);
                 }
             }
+            num[j / 100] = 0;
+            num[j % 100 / 10] = 0;
+            num[j % 10] = 0;
         }
+        num[i / 100] = 0;
+        num[i % 100 / 10] = 0;
+        num[i % 10] = 0;
     }
     system("pause");
     return 0;
