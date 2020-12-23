@@ -3,41 +3,35 @@ using namespace std;
 bool num[10];
 int main()
 {
-    for (int i = 123; i <= 987; i++)
+    for (int i = 123; i <= 321; i++)
     {
-        num[i / 100] = 1;
-        num[i % 100 / 10] = 1;
-        num[i % 10] = 1;
-        for (int j = i + 1; j <= 987; j++)
+        int iw[4];
+        if ((iw[1] != iw[2]) || (iw[1] != iw[3]) || (iw[2] != iw[3]))
         {
-            if (num[j / 100] || num[j % 100 / 10] || num[j % 10])
+            num[iw[1]] = 1;
+            num[iw[2]] = 1;
+            num[iw[3]] = 1;
+            int j = i * 2;
+            int jw[4];
+            if (!(num[jw[1]] || num[jw[2]] || num[jw[3]]) && ((jw[1] != jw[2]) || (jw[1] != jw[3]) || (jw[2] != jw[3])))
             {
-                continue;
-            }
-            else
-            {
-                num[j / 100] = 1;
-                num[j % 100 / 10] = 1;
-                num[j % 10] = 1;
-            }
-            for (int k = j + 1; k <= 987; k++)
-            {
-                if (num[k / 100] || num[k % 100 / 10] || num[k % 10])
+                num[jw[1]] = 1;
+                num[jw[2]] = 1;
+                num[jw[3]] = 1;
+                int k = i * 3;
+                int kw[4];
+                if (!(num[kw[1]] || num[kw[2]] || num[kw[3]]) && ((kw[1] != kw[2]) || (kw[1] != kw[3]) || (kw[2] != kw[3])))
                 {
-                    continue;
+                    printf("%d %d %d\n", i, j, k);
                 }
-                if((j / i) == 2 && (k / i) == 3)
-                {
-                    printf("%d %d %d\n",i,j,k);
-                }
+                num[jw[1]] = 0;
+                num[jw[2]] = 0;
+                num[jw[3]] = 0;
             }
-            num[j / 100] = 0;
-            num[j % 100 / 10] = 0;
-            num[j % 10] = 0;
+            num[iw[1]] = 0;
+            num[iw[2]] = 0;
+            num[iw[3]] = 0;
         }
-        num[i / 100] = 0;
-        num[i % 100 / 10] = 0;
-        num[i % 10] = 0;
     }
     system("pause");
     return 0;
