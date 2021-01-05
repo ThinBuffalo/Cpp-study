@@ -1,6 +1,18 @@
 //求质数样例程序
 #include<bits/stdc++.h>
 using namespace std;
+//素数判断函数
+bool prime(int a)
+{
+    for (int k = 2; k <= a / 2; k++)
+    {
+        if (a % k == 0)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
 int main()
 {
     int n;

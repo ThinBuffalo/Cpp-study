@@ -24,6 +24,6 @@ int main()
         }
     }
     printf("%d",t);
-    // system("pause");
+    system("pause");
     return 0;
 }
