@@ -34,7 +34,7 @@ int main()
                         if((3+j+k)==n)
                         {
                             printf("3 %d %d",j,k);
-                            // system("pause");
+                            system("pause");
                             return 0;
                         }
                     }
