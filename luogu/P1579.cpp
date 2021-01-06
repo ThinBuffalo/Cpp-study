@@ -15,28 +15,31 @@ int main()
 {
     int n;
     scanf("%d",&n);
-    for(int i=2;i<=n/2;i++)
+    if(prime(n-4))
     {
-        if(prime(i))
+        printf("2 2 %d",n-4);
+        // system("pause");
+        return 0;
+    }
+    else
+    {
+        for(int j=2;j<=n;j++)
         {
-            for(int j=2;j<=n/2;j++)
+            if(prime(j))
             {
-                if(prime(j))
+                for(int k=j;k<=n;k++)
                 {
-                    for(int k=2;k<=n/2;k++)
+                    if(prime(k))
                     {
-                        if(prime(k))
+                        if((3+j+k)==n)
                         {
-                            if((i+j+k)==n)
-                            {
-                                printf("%d %d %d\n",i,j,k);
-                            }
+                            printf("3 %d %d",j,k);
+                            // system("pause");
+                            return 0;
                         }
                     }
                 }
             }
         }
     }
-    system("pause");
-    return 0;
 }
