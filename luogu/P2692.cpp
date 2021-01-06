@@ -11,10 +11,6 @@ int main()
         scanf("%d%d",&x,&y);
         for(int j=x;j<=y;j++)
         {
-            // for(int k=1;k<=m;k++)
-            // {
-            //     a[k][j]=1;
-            // }
             h[j]=1;
         }
     }
