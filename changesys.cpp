@@ -1,3 +1,4 @@
+//½øÖÆ×ª»»
 #include <bits/stdc++.h>
 using namespace std;
 int number(char num)
