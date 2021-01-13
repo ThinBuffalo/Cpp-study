@@ -1,50 +1,67 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-float theSecondParty(int n,int k)
+int number(char num)
 {
-    if(k==0) return 1;
-    float ans=1;
-    bool negative=0;
-    if(n<0)
+    if (num < '9')
     {
-        n=0-n;
-        negative=1;
+        return num - '0';
     }
-    for(int i=1;i<=k;i++)
+    else
     {
-        ans*=n;
+        return num - 'A' + 10;
     }
-    if(negative==1)
+}
+float theSecondParty(int n, int k)
+{
+    if (k == 0)
+        return 1;
+    float ans = 1.0;
+    bool negative = 0;
+    if (k < 0)
     {
-        ans=1/ans;
+        k = 0 - k;
+        negative = 1;
+    }
+    for (int i = 1; i <= k; i++)
+    {
+        ans *= (float)n;
+    }
+    if (negative)
+    {
+        ans = 1.0 / ans;
     }
     return ans;
 }
 int main()
 {
     char other[32];
-    int n,point,size,right;
-    float ans=0;
-    scanf("%d%s",&n,other);
-    for(int i=0;1;i++)
+    int n, point, size, right = 0;
+    float ans = 0;
+    scanf("%d%s", &n, other);
+    for (int i = 0; 1; i++)
     {
-        if(other[i]=='.')
+        if (other[i] == '.')
         {
-            right=i;
+            right = i - 1;
         }
-        if(other[i]=='\n')
+        if (other[i] == '\000')
         {
-            size=i+1;
+            size = i - 1;
+            if (right == 0)
+            {
+                right = i - 1;
+            }
             break;
         }
     }
-    for(int i=0;i<=size;i++)
+    for (int i = 0; i <= size; i++)
     {
-        if(other[i]='.') continue;
-        ans+=other[i]*theSecondParty(n,right);
+        if (other[i] == '.')
+            continue;
+        ans += number(other[i]) * theSecondParty(n, right);
         right--;
     }
-    printf("%lf",ans);
+    printf("%lf\n", ans);
     system("pause");
     return 0;
 }
