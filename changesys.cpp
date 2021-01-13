@@ -36,8 +36,8 @@ float theSecondParty(int n, int k)
 int main()
 {
     char other[32];
-    int n, point, size, right = 0;
-    float ans = 0;
+    int n, point, size, right = 2147483647;
+    double ans = 0.0;
     scanf("%d%s", &n, other);
     for (int i = 0; 1; i++)
     {
@@ -48,7 +48,7 @@ int main()
         if (other[i] == '\000')
         {
             size = i - 1;
-            if (right == 0)
+            if (right == 2147483647)
             {
                 right = i - 1;
             }
