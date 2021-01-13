@@ -1,6 +1,7 @@
-//进制转换
+//n进制转换10进制
 #include <bits/stdc++.h>
 using namespace std;
+//转char为int
 int number(char num)
 {
     if (num < '9')
@@ -12,6 +13,7 @@ int number(char num)
         return num - 'A' + 10;
     }
 }
+//求n的k次方
 float theSecondParty(int n, int k)
 {
     if (k == 0)
@@ -36,7 +38,7 @@ float theSecondParty(int n, int k)
 int main()
 {
     char other[32];
-    int n, point, size, right = 2147483647;
+    int n, point, size, right = 2147483647;//int的最大值，为免48行使权为0与53行冲突(0.···)
     double ans = 0.0;
     scanf("%d%s", &n, other);
     for (int i = 0; 1; i++)
