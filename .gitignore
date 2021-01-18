@@ -47,6 +47,9 @@ hs_err_pid*
 *.exe
 *.app
 #C++ over
-#   题解
+#题解
 luogu/Solution.cpp
+#常用工具
 useful/
+#测试
+test.cpp
