@@ -33,8 +33,9 @@ void tosecret(char *ch)
 	int len=strlen(ch);
 	for(int i=0;i<len;i++)
 	{
-		ch[i]=(ch[i]-'0')%9
+		ch[i]=(ch[i]-'0'+1)%10+'0';
 	}
+	return;
 }
 void sinput(char *put)
 {
@@ -95,6 +96,7 @@ int main()
 						printf("密码不匹配，请重试");
 					}
 				}
+				tosecret(password);
 				printf("请输入姓名：");
 				scanf("%s",&name);
 				printf("请输入联系电话：");
