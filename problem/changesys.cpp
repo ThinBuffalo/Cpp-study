@@ -37,31 +37,24 @@ float theSecondParty(int n, int k)
 int main()
 {
     char other[32];
-    int n1, n2, point, size, right = 2147483647; //int的最大值，为免48行使权为0与53行冲突(0.···)
+    int n1, n2, point, size, right; //int的最大值，为免48行使权为0与53行冲突(0.···)
     double ans = 0.0;
-    scanf("%d%s%d", &n1, other, &n2); //第一个输代转换数字进制，第二个输代转换数字（数字中如有字母用大写），第三个输转换到的进制
+    scanf("%d%s%d", &n1, other, &n2); //第一个输待转换数字进制，第二个输待转换数字（数字中如有字母用大写），第三个输转换到的进制
     //n进制转换10进制
-    for (int i = 0; 1; i++)
+    size=right=strlen(other);
+    for(int i=0;i<size;i++)
     {
-        if (other[i] == '.')
+        if(other[i] == '.')
         {
-            right = i - 1;
-        }
-        if (other[i] == '\000')
-        {
-            size = i - 1;
-            if (right == 2147483647)
-            {
-                right = i - 1;
-            }
+            right=i-1;
             break;
         }
     }
-    for (int i = 0; i <= size; i++)
+    for (int i = 0; i < size; i++)
     {
         if (other[i] == '.')
             continue;
-        ans += number(other[i]) * theSecondParty(n1, right);
+        ans += number(other[i]) * theSecondParty(n1, right-1);
         right--;
     }
     //10进制转n进制，暂只支持整数
@@ -85,7 +78,6 @@ int main()
         }
     }
     printf("\n");
-    // printf("%lf\n", ans);
     system("pause");
     return 0;
 }
